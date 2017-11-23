@@ -1,11 +1,12 @@
 <?php
 
+
 $uri = $_SERVER['REQUEST_URI'];
 
 $uriarray = explode("/", rtrim($uri));
 unset($uriarray[0], $uriarray[1]);
 $uri = join("/", $uriarray);
-
+require_once 'vues/vue_haut.php';
 var_dump($uri);
 
 switch($uriarray){
@@ -26,5 +27,7 @@ switch($uriarray){
         echo "Erreur";
         break;
 }
+
+require_once 'vues/vue_bas.php';
 
 ?>

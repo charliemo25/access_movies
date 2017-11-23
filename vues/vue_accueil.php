@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Cancoicode Movies</title>
-</head>
-<body>
-   
-    <?php
+       <?php
     
     foreach($pagination[0] as $film){
         
@@ -27,23 +19,20 @@
         echo "</p>";
     }
     
-    echo '<p class="text-center">Page : ';
+    echo '<ul class="pagination">Page : ';
     for($i=1; $i<=$pagination[1]; $i++){
         
         if($i==$pagination[2]){
-            echo $i; 
+            echo '<li class="active">'.$i.'</li>'; 
         }
         else{
             if(empty($uriarray[3])){
-            echo ' <a href="accueil/'.$i.'">'.$i.'</a> ';
+            echo ' <li class="waves-effect"><a href="accueil/'.$i.'">'.$i.'</a></li> ';
             } else {
-                echo ' <a href="'.$i.'">'.$i.'</a> ';
+                echo ' <li class="waves-effect"><a href="'.$i.'">'.$i.'</a></li> ';
             }
         }
     }
-    echo '</p>';
+    echo '</ul>';
     
     ?>
-    
-</body>
-</html>
