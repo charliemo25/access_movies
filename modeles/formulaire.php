@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_REQUEST['tags'], $_REQUEST['titre'], $_REQUEST['annee'], $_REQUEST['description'], $_REQUEST['realisateur'])){
-
+    
     /*Récuperation des genres dans un tableau*/
     $tags = explode("," , $_REQUEST['tags']);
 
@@ -11,7 +11,6 @@ if(isset($_REQUEST['tags'], $_REQUEST['titre'], $_REQUEST['annee'], $_REQUEST['d
     unset($annee[0]);
     /*annee prend la valeur de... l'année*/
     $annee = intval($annee[1]);
-    
     
     /*Insertion d'un film*/
     $req = $pdo->prepare("insert into film(titre, annee, description, realisateur) values(:titre, :annee, :description, :realisateur)");

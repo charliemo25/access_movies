@@ -1,7 +1,22 @@
 $(document).ready(function () {
 
     var tab = [];
-    var x = 0;
+    var tags = [
+                'romance',
+                'action',
+                'comédie',
+                'drame',
+                'musical',
+                'fantastique',
+                'aventure',
+                'science-fiction',
+                'policier',
+                'thriller',
+                'road-trip',
+                'feel-good',
+                'animation',
+                'historique'
+            ];
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
@@ -11,45 +26,54 @@ $(document).ready(function () {
         close: 'Ok',
         closeOnSelect: false // Close upon selecting a date,
     });
-    
+
     $('.chips-autocomplete').material_chip({
-    autocompleteOptions: {
-      data: {
-        'romance': null,
-        'action': null,
-        'comédie': null,
-        'drame': null,
-        'musical': null,
-        'fantastique': null,
-        'aventure': null,
-        'science-fiction': null,
-        'policier': null,
-        'thriller': null,
-        'road-trip': null,
-        'feel-good': null,
-        'animation': null,
-        'historique': null
-      },
-      limit: Infinity,
-      minLength: 1
-    }
-  });
-    
+        autocompleteOptions: {
+            data: {
+                'romance': null,
+                'action': null,
+                'comédie': null,
+                'drame': null,
+                'musical': null,
+                'fantastique': null,
+                'aventure': null,
+                'science-fiction': null,
+                'policier': null,
+                'thriller': null,
+                'road-trip': null,
+                'feel-good': null,
+                'animation': null,
+                'historique': null
+            },
+            limit: Infinity,
+            minLength: 1
+        },
+        placeholder: 'Entrer les genres'
+    });
+
     $('.chips').on('chip.add', function (e, chip) {
         // you have the added chip here
+        tab.forEach(function (index) {
+            if (chip.tag == index) {
+                return false;
+            }
+        });
         tab.push(chip.tag);
         console.log(tab);
     });
 
     $('.chips').on('chip.delete', function (e, chip) {
         // you have the deleted chip here
-        console.log(chip.tag);
+        tab = tab.filter(function (e) {
+            return e != chip.tag;
+        });
+        console.log(tab);
     });
-    /*Utiliser les event add et delete*/
 
-    $('form').submit(function(){
-        //Faire une condition pour ne récuperer que l'année
+    $('form').submit(function (e) {
         $('#tags').val(tab);
+        
+        console.log(tab);
     });
 
 });
