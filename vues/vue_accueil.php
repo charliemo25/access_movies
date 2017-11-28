@@ -3,11 +3,11 @@
     require_once('vues/vue_haut.php');
 echo '<div class="row">
         <div class="col s4 offset-s4">';
-echo '<ul class="pagination">Page : ';
+echo '<ul class="pagination">';
     for($i=1; $i<=$pagination[1]; $i++){
         
         if($i==$pagination[2]){
-            echo '<li class="waves-effect active"><a href="">'.$i.'</a></li>'; 
+            echo '<li class="waves-effect green darken-2 active"><a href="">'.$i.'</a></li>'; 
         }
         else{
             if(empty($uriarray[3])){
@@ -21,7 +21,7 @@ echo '</ul> </div> </div> <div class="row">';
     
     foreach($pagination[0] as $film){
         
-        echo '<div class="col m4 z-depth-1"> 
+        echo '<div style="margin-bottom: 30px;" class="col m4"> 
         <div class="card"> 
         <div class="card-image">';
             
@@ -34,15 +34,15 @@ echo '</ul> </div> </div> <div class="row">';
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
                 </div>';
             }
-        if(!isset($uriarray[3])){
+        if(empty($uriarray[3])){
             
         echo '<form method="POST" action="films/'.$film['id'].'">
-        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">add</button>
+        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
         </form></span>';
             
         } else {
              echo '<form method="POST" action="../films/'.$film['id'].'">
-        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">add</button>
+        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
         </form></span>';
         }
         
@@ -59,11 +59,11 @@ echo '</ul> </div> </div> <div class="row">';
              }
         echo '<div class="row">
         <div class="col s4 offset-s4">
-        <ul class="pagination">Page :';
+        <ul class="pagination">';
     for($i=1; $i<=$pagination[1]; $i++){
         
         if($i==$pagination[2]){
-            echo '<li class="waves-effect active"><a href="">'.$i.'</a></li>'; 
+            echo '<li class="waves-effect green darken-2 active"><a href="">'.$i.'</a></li>'; 
         }
         else{
             if(empty($uriarray[3])){

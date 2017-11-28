@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="css/materialize.min.css">
+
 <?php
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -6,8 +9,10 @@ $uri = $_SERVER['REQUEST_URI'];
 $uriarray = explode("/", rtrim($uri));
 unset($uriarray[0], $uriarray[1]);
 $uri = join("/", $uriarray);
-
 require_once ('modeles/get_genre.php');
+if(!isset($uriarray[3])){
+    $uriarray[3] = "";
+}
 
 switch($uriarray){
     case empty($uriarray[2]):
@@ -33,15 +38,16 @@ switch($uriarray){
         
         require_once 'vues/vue_accueil.php';
         break;
-    case $uriarray[2] == 'films':
-        
+    case $uriarray[2] == 'films' && ctype_digit($uriarray[3]):
         require_once 'modeles/pdo.php';
         require_once 'modeles/detail_movie.php';
         $detail_film = detail_movie($pdo, $uriarray[3]);
+        require_once 'modeles/get_all_movies.php';
+        $liste_films = get_all_movies($pdo);
         require_once 'modeles/get_genres.php';
         
-        foreach($detail_film as $film){
-            $genre = get_genres($film['id'], $pdo);   
+        foreach($liste_films as $film){
+            $genres = get_genres($film['id'], $pdo);   
         }
         require_once 'vues/vue_films.php';
         break;
@@ -56,4 +62,6 @@ switch($uriarray){
 }
 
 ?>
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
 <script src="vues/js/app.js"></script>

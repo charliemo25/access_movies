@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper green darken-1">
       <a href="#" class="brand-logo">Cancoicode-Movies</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
        <?php if(empty($uriarray[3])){

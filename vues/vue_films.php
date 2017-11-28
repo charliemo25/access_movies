@@ -10,9 +10,9 @@
         echo '<img src="../vues/img/'.$f['id'].'.jpg" alt="Miniature de '.$f['titre'].'"><br>';
         
         echo "<b>Genre:</b> ";
-        foreach($genre as $g){
+        foreach($genres as $g){
             if($f['id'] == $g['id']){
-                echo "<span>".$g['nom']."</span> ";
+                echo "<span>".$g['genre']."</span> ";
             }
         }
         echo "<br><span class='realisateur'><b>Réalisateur:</b> ".$f['realisateur']."</span>";
