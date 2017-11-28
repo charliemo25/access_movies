@@ -3,7 +3,7 @@
         <form class="col s12" method="POST">
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Titre" id="titre" type="text"  name="titre" class="validate">
+                    <input id="titre" type="text"  name="titre" class="validate">
                     <label for="titre">Titre</label>
                 </div>
                 <div class="input-field col s6">
@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Réalisateur" id="realisateur" name="realisateur" type="text" class="validate">
+                    <input id="realisateur" name="realisateur" type="text" class="validate">
                     <label for="Réalisateur">Réalisateur</label>
                 </div>
             </div>

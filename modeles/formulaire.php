@@ -1,6 +1,10 @@
 <?php
 
-if(isset($_REQUEST['tags'], $_REQUEST['titre'], $_REQUEST['annee'], $_REQUEST['description'], $_REQUEST['realisateur'])){
+if(empty($_REQUEST['tags']) && empty($_REQUEST['titre']) && empty($_REQUEST['annee']) && empty($_REQUEST['description']) && empty($_REQUEST['realisateur'])){
+    
+    echo "<p>Rempli ça sérieusement jeune bipède ! </p>";
+    
+} else {
     
     /*Récuperation des genres dans un tableau*/
     $tags = explode("," , $_REQUEST['tags']);
