@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Cancoicode Movies</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="http://localhost/access_movies/css/materialize.min.css">
+    <link rel="stylesheet" href="http://localhost/access_movies/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
