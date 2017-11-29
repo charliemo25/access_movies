@@ -58,9 +58,9 @@ switch($uriarray[2]){
             require_once 'modeles/formulaire.php';
         break;
     case 'inscription':
-            require_once 'modele/pdo.php';
-            require_once 'vues/inscription.php';
-            require_once 'modeles/ajout_utilisateur.php';
+            require_once 'modeles/pdo.php';
+            require_once 'vues/vue_inscription.php';
+            require_once 'modeles/register_user.php';
         break;
     default:
          echo "Erreur 404";
