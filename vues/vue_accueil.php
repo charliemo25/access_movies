@@ -1,4 +1,4 @@
-    <?php
+<?php
     
     require_once('vues/vue_haut.php');
 echo '<div class="row">
@@ -10,11 +10,7 @@ echo '<ul class="pagination">';
             echo '<li class="waves-effect green darken-2 active"><a href="">'.$i.'</a></li>'; 
         }
         else{
-            if(empty($uriarray[3])){
-            echo '<li class="waves-effect"><a href="accueil/'.$i.'">'.$i.'</a></li> ';
-            } else {
-                echo '<li class="waves-effect"><a href="'.$i.'">'.$i.'</a></li> ';
-            }
+            echo '<li class="waves-effect"><a href="http://localhost/access_movies/accueil/'.$i.'">'.$i.'</a></li> ';
         }
     }
 echo '</ul> </div> </div> <div class="row">';
@@ -25,26 +21,14 @@ echo '</ul> </div> </div> <div class="row">';
         <div class="card"> 
         <div class="card-image">';
             
-            if(empty($uriarray[3])){
+
                 echo '<img src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
                 </div>';
-            } else {
-                echo '<img src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
-                <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
-                </div>';
-            }
-        if(empty($uriarray[3])){
-            
-        echo '<form method="POST" action="films/'.$film['id'].'">
+                
+        echo '<form method="POST" action="http://localhost/access_movies/films/'.$film['id'].'">
         <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
         </form></span>';
-            
-        } else {
-             echo '<form method="POST" action="../films/'.$film['id'].'">
-        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
-        </form></span>';
-        }
         
         echo "<p><b>Année de production:</b> ".$film['annee']."<br>";
         echo "<b>Genre :</b> ";
@@ -66,11 +50,7 @@ echo '</ul> </div> </div> <div class="row">';
             echo '<li class="waves-effect green darken-2 active"><a href="">'.$i.'</a></li>'; 
         }
         else{
-            if(empty($uriarray[3])){
-            echo '<li class="waves-effect"><a href="accueil/'.$i.'">'.$i.'</a></li> ';
-            } else {
-                echo '<li class="waves-effect"><a href="'.$i.'">'.$i.'</a></li> ';
-            }
+            echo '<li class="waves-effect"><a href="http://localhost/access_movies/accueil/'.$i.'">'.$i.'</a></li> ';
         }
     }
     echo '</ul> </div> </div> </div>';

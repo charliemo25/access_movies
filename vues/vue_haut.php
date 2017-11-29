@@ -12,17 +12,11 @@
     <div class="nav-wrapper green darken-1">
       <a href="#" class="brand-logo">Cancoicode-Movies</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <?php if(empty($uriarray[3])){
-        echo '<li><a href="accueil">Accueil</a></li>';
-        } else {
-        echo '<li><a href="../accueil">Accueil</a></li>';
-        }?>
+       <?php
+        echo '<li><a href="http://localhost/access_movies/accueil/">Accueil</a></li>';?>
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Films<i class="material-icons right">arrow_drop_down</i></a></li>
-         <?php if(empty($uriarray[3])){
-        echo '<li><a href="ajout">Ajout</a></li>';
-        } else {
-        echo '<li><a href="../ajout">Ajout</a></li>';
-        }  ?>
+         <?php
+        echo '<li><a href="http://localhost/access_movies/ajout/">Ajout</a></li>'; ?>
       </ul>
       <ul id="dropdown1" class="dropdown-content">
        <?php

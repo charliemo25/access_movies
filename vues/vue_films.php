@@ -19,7 +19,7 @@
         echo "<p class='flow-text'><b>Synopsis:</b> <br>".$f['description']."</p>";
         
     }
-        echo '<form method="POST" action="../accueil">
+        echo '<form method="POST" action="javascript:history.back()">
         <button class="btn waves-effect waves-light blue material-icons" type="submit">arrow_back</button>
         </form>';
     require_once ('vues/vue_bas.php');
