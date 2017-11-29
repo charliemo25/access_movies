@@ -30,15 +30,7 @@ echo '</ul> </div> </div> <div class="row">';
         <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
         </form></span>';
         
-        echo "<p><b>Année de production:</b> ".$film['annee']."<br>";
-        echo "<b>Genre :</b> ";
-        foreach($genres as $genre){
-            if($film['id'] == $genre['id']){
-                echo "<span>".$genre['genre']." </span>";
-            }
-        }
-        echo '</p>
-            </div>
+            echo '</div>
              </div>';
              }
         echo '<div class="row">

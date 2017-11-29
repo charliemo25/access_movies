@@ -67,7 +67,7 @@ switch($uriarray[2]){
             break;
         }
         break;
-    case 'inscription':
+    case 'register':
             require_once 'modeles/pdo.php';
             require_once 'vues/vue_inscription.php';
             require_once 'modeles/register_user.php';
