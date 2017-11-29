@@ -26,11 +26,11 @@ echo '</ul> </div> </div> <div class="row">';
         <div class="card-image">';
             
             if(empty($uriarray[3])){
-                echo '<img src="vues/img/'.$film['id'].'.jpg" alt="Miniature">
+                echo '<img src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
                 </div>';
             } else {
-                echo '<img src="../vues/img/'.$film['id'].'.jpg" alt="Miniature">
+                echo '<img src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
                 </div>';
             }
