@@ -16,6 +16,11 @@
             }
         }
         echo "<br><span class='realisateur'><b>Réalisateur:</b> ".$f['realisateur']."</span>";
+        foreach($user as $u){
+            if($u['titre'] == $f['titre']){
+                echo "<br><span class='user'><b>Ajouté par:</b> ".$u['pseudo']."</span>";
+            }
+        }
         echo "<p class='flow-text'><b>Synopsis:</b> <br>".$f['description']."</p>";
         
     }

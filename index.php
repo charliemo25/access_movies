@@ -45,10 +45,11 @@ switch($uriarray[2]){
             require_once 'modeles/get_all_movies.php';
             $liste_films = get_all_movies($pdo);
             require_once 'modeles/get_genres.php';
-
             foreach($liste_films as $film){
                 $genres = get_genres($film['id'], $pdo);   
             }
+            require_once 'modeles/get_user.php';
+            $user = get_user($pdo);
             require_once 'vues/vue_films.php';
         break;
         
