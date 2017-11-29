@@ -58,13 +58,14 @@ switch($uriarray[2]){
             require_once 'vues/vue_form.php';
             require_once 'modeles/formulaire.php';
         break;
-        
+    case 'inscription':
+            require_once 'modele/pdo.php';
+            require_once 'vues/inscription.php';
+            require_once 'modeles/ajout_utilisateur.php';
+        break;
     default:
          echo "Erreur 404";
         break;
 }
 
 ?>
-<script src="js/jquery.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="vues/js/app.js"></script>
