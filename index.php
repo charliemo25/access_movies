@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $uri = $_SERVER['REQUEST_URI'];
 
 
@@ -9,6 +9,8 @@ $uri = join("/", $uriarray);
 require_once ('modeles/get_genre.php');
 if(!isset($uriarray[3])){
     $uriarray[3] = "";
+} if(!isset($_SESSION['result'])){
+    $_SESSION['result'] = "";
 }
 
 switch($uriarray[2]){
@@ -54,14 +56,39 @@ switch($uriarray[2]){
         break;
         
     case 'ajout':
+        if($_SESSION['result']){
             require_once 'modeles/pdo.php';
             require_once 'vues/vue_form.php';
             require_once 'modeles/formulaire.php';
+            break;
+        } else {
+            echo "Vous n'avez pas la permission d'ajouter des films !<br> Inscrivez vous !";
+            header("Refresh:1; url=http://localhost/access_movies/inscription");
+            break;
+        }
         break;
     case 'inscription':
             require_once 'modeles/pdo.php';
             require_once 'vues/vue_inscription.php';
             require_once 'modeles/register_user.php';
+        break;
+    case 'connect':
+        require_once 'modeles/pdo.php';
+        require_once 'modeles/get_user.php';
+        $users = get_user($pdo);
+        require_once 'vues/vue_connexion.php';
+        break;
+    case 'connexion':
+        require_once 'modeles/pdo.php';
+        require_once 'modeles/get_user.php';
+        $users = get_user($pdo);
+        require_once 'modeles/connect_user.php';
+        $_SESSION['result'] = connect_user($_SESSION['pseudo'], $_SESSION['password'], $users);
+        header("Refresh:0; url=http://localhost/access_movies/accueil");
+        break;
+    case 'deconnexion':
+        session_destroy();
+        header("Refresh:0; url=http://localhost/access_movies/accueil");
         break;
     default:
          echo "Erreur 404";

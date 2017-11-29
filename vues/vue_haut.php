@@ -13,7 +13,9 @@
       <a href="#" class="brand-logo">Cancoicode-Movies</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
        <li><a href="http://localhost/access_movies/accueil/">Accueil</a></li>
-        <li><a href="http://localhost/access_movies/ajout/">Ajout</a></li>
+       <?php if($_SESSION['result']){
+                echo '<li><a href="http://localhost/access_movies/ajout/">Ajout</a></li>';
+            } ?>
       </ul>
     </div>
 </nav>
