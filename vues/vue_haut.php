@@ -18,7 +18,7 @@
        <?php if($_SESSION['result']){
                 echo '<li><a href="http://localhost/access_movies/ajout/"><i class="material-icons left">add</i>Ajout</a></li>';
                 echo '<ul class="right hide-on-med-and-down">';
-                echo '<li class="input-field"><i class="material-icons prefix">search</i><input type="text" class="search" placeholder="Rechercher un film"></li>';
+                echo '<li class="input-field"><form method="POST" action="http://localhost/access_movies/search"><i class="material-icons prefix">search</i><input name="searchtext" type="text" class="search" placeholder="Rechercher un film"></form></li>';
                 echo '<li><i class="material-icons left">theaters</i>Bonjour '.$_SESSION['pseudo'].' !';
                 echo '</ul>';
                 echo '<li><a href="http://localhost/access_movies/deconnexion"><i class="material-icons left">label_outline</i>Déconnexion</a></li>';
