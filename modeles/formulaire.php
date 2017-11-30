@@ -124,7 +124,7 @@ if(empty($_REQUEST['tags']) && empty($_REQUEST['titre']) && empty($_REQUEST['ann
         }
         
         echo '<p>Merci de votre contribution</p>';
-        header("Refresh:1; url=http://localhost/access_movies/accueil");
+        header("Refresh:1; url=http://localhost/access_movies/accueil/1");
         
     } else{
         foreach($erreur as $fail){
