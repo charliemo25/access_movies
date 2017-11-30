@@ -102,6 +102,26 @@ switch($uriarray[2]){
         session_destroy();
         header("Refresh:0; url=http://localhost/access_movies/accueil/1");
         break;
+    case 'profil':
+        if($_SESSION['result']){
+            require_once 'modeles/pdo.php';
+            require_once 'modeles/get_all_movies.php';
+            require_once 'modeles/get_user_films.php';
+            
+            $liste_films = get_all_movies($pdo);
+            
+            $films_user = get_user_films($pdo, $_SESSION['pseudo']);
+            
+            require_once 'vues/vue_profil.php';
+            
+            require_once 'modeles/change_password.php';
+            
+            break;
+        } else {
+            echo "Connectez-vous pour consulter votre profil";
+            header("Refresh:1; url=http://localhost/access_movies/connect");
+            break;
+        }
     default:
          echo "Erreur 404";
         break;
