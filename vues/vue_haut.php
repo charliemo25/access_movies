@@ -10,9 +10,9 @@
 <body>
 <nav>
     <div class="nav-wrapper green darken-1">
-      <a href="http://localhost/access_movies/accueil/" class="brand-logo">Cancoicode-Movies</a>
+      <a href="http://localhost/access_movies/accueil/1" class="brand-logo">Cancoicode-Movies</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li><a href="http://localhost/access_movies/accueil/">Accueil</a></li>
+       <li><a href="http://localhost/access_movies/accueil/1">Accueil</a></li>
        <?php if($_SESSION['result']){
                 echo '<li><a href="http://localhost/access_movies/ajout/">Ajout</a></li>';
                 echo '<li>Bonjour '.$_SESSION['pseudo'].' !';

@@ -6,7 +6,6 @@ function get_user($pdo){
     $user = $req->fetchAll();
     
     return $user;
-    //online123
 }
 
 ?>

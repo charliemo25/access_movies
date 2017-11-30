@@ -21,6 +21,7 @@ switch($uriarray[2]){
         
     case 'accueil':
         
+        if(isset($uriarray[3]) && ctype_digit($uriarray[3])){
             require_once 'modeles/pdo.php';
 
             require_once 'modeles/get_all_movies.php';
@@ -37,8 +38,19 @@ switch($uriarray[2]){
                 $genres = get_genres($film['id'], $pdo);   
             }
 
+            require_once 'vues/vue_pagination.php';
+            break;
+        } elseif ($uri == 'accueil' || $uri == 'accueil/') {
+            require_once 'modeles/pdo.php';
+            require_once ('modeles/last_movies.php');
+            $last_films = last_movies($pdo);
+
             require_once 'vues/vue_accueil.php';
-        break;
+            break;
+        } else {
+            echo 'Erreur 404';
+            break;
+        }
         
     case 'films' && ctype_digit($uriarray[3]):
             require_once 'modeles/pdo.php';
@@ -63,7 +75,7 @@ switch($uriarray[2]){
             break;
         } else {
             echo "Vous n'avez pas la permission d'ajouter des films !<br> Inscrivez vous !";
-            header("Refresh:1; url=http://localhost/access_movies/inscription");
+            header("Refresh:1; url=http://localhost/access_movies/register");
             break;
         }
         break;
@@ -84,11 +96,11 @@ switch($uriarray[2]){
         $users = get_user($pdo);
         require_once 'modeles/connect_user.php';
         $_SESSION['result'] = connect_user($_SESSION['pseudo'], $_SESSION['password'], $users);
-        header("Refresh:0; url=http://localhost/access_movies/accueil");
+        header("Refresh:0; url=http://localhost/access_movies/accueil/1");
         break;
     case 'deconnexion':
         session_destroy();
-        header("Refresh:0; url=http://localhost/access_movies/accueil");
+        header("Refresh:0; url=http://localhost/access_movies/accueil/1");
         break;
     default:
          echo "Erreur 404";

@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+      $('.carousel').carousel();
+        
     var tab = [];
     var tags = [
                 'romance',
