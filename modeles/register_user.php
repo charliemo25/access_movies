@@ -4,10 +4,10 @@ var_dump($_REQUEST);
 
 if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pseudo']) && empty($_REQUEST['mdp'])){
     
-    echo "<p>Rempli ça sérieusement jeune bipède ! </p>";
     
 } else {
     
+    $erreur = "";
     $envoi = true;
     
     $nom = $_REQUEST['nom'];
@@ -15,21 +15,51 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
     $pseudo = $_REQUEST['pseudo'];
     $mdp = hash('sha256', $_REQUEST['mdp']);
     
-    if($nom == '' || $prenom == '' || $pseudo == '' || $mdp == ''){
-        
-        echo'<p>Veuillez remplir les champs';
-        $envoi = false;
-        
+    switch($nom){
+        case '':
+                $envoi = false;
+                $erreur['nom'] = "Le nom est vide";
+            break;
+        default:
+                $erreur['nom'] = '';
+            break;
     }
     
-    if(strlen($mdp) >10 || strlen($mdp)<8){
-        
-        echo "<p>Le mot de passe doit être compris entre 8 et 12 caractères</p>";
-        $envoi = false;
-        
+    switch($prenom){
+        case '':
+                $envoi = false;
+                $erreur['prenom'] = "Le prenom est vide";
+            break;
+        default:
+                $erreur['prenom'] = '';
+            break;
     }
     
-    if($envoi == true){
+    switch($pseudo){
+        case '':
+                $envoi = false;
+                $erreur['pseudo'] = "Le pseudo est vide";
+            break;
+        default:
+                $erreur['pseudo'] = '';
+            break;
+    }
+    
+    switch($mdp){
+        case '':
+                $envoi = false;
+                $erreur['mdp'] = "Le mdp est vide";
+            break;
+        case strlen($mdp) > 12 || strlen($mdp) < 6:
+                $envoi = false;
+                $erreur['mdp'] = "Veuillez saisir un mdp compris entre 6 et 12 caractères";
+            break;
+        default:
+                $erreur['mdp'] = '';
+            break;
+    }
+    
+    if($envoi){
         
         $req = $pdo->prepare("insert into utilisateurs(nom, prenom, pseudo, mdp) values(:nom, :prenom, :pseudo, :mdp)");
         $req->bindParam(':nom', $_REQUEST['nom']);
