@@ -13,6 +13,7 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
     $nom = $_REQUEST['nom'];
     $prenom = $_REQUEST['prenom'];
     $pseudo = $_REQUEST['pseudo'];
+    $mdp = hash('sha256', $_REQUEST['mdp']);
     
     switch($nom){
         case '':
@@ -44,17 +45,16 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
             break;
     }
     
-    switch($_REQUEST['mdp']){
+    switch($mdp){
         case '':
                 $envoi = false;
                 $erreur['mdp'] = "Le mdp est vide";
             break;
         case strlen($mdp) > 12 || strlen($mdp) < 6:
                 $envoi = false;
-                $erreur['mdp'] = "Veuillez saisir un mot de passe compris entre 6 et 12 caractères";
+                $erreur['mdp'] = "Veuillez saisir un mdp compris entre 6 et 12 caractères";
             break;
         default:
-                $mdp = hash('sha256', $_REQUEST['mdp']);
                 $erreur['mdp'] = '';
             break;
     }
@@ -67,14 +67,7 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
         $req->bindParam(':pseudo', $_REQUEST['pseudo']);
         $req->bindParam(':mdp', $mdp);
         $req->execute();
-        
-        
-        echo '<p>Merci de votre inscription</p>';
-        header("Refresh:1; url=http://localhost/access_movies/accueil/1");
-    }else{
-        foreach($erreur as $fail){
-            echo '<p>'.$fail.'</p>';
-        }
+    }
     
     
     

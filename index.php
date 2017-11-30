@@ -37,12 +37,11 @@ switch($uriarray[2]){
             foreach($liste_films as $film){
                 $genres = get_genres($film['id'], $pdo);   
             }
-
             require_once 'vues/vue_pagination.php';
             break;
         } elseif ($uri == 'accueil' || $uri == 'accueil/') {
             require_once 'modeles/pdo.php';
-            require_once ('modeles/last_movies.php');
+            require_once 'modeles/last_movies.php';
             $last_films = last_movies($pdo);
 
             require_once 'vues/vue_accueil.php';
@@ -51,7 +50,13 @@ switch($uriarray[2]){
             echo 'Erreur 404';
             break;
         }
-        
+    case 'search':
+        require_once 'modeles/pdo.php';
+        require_once 'modeles/get_all_movies.php';
+        $films = get_all_movies($pdo);
+        require_once 'modeles/search_query.php';
+        $result = search_query($pdo, $_POST['searchtext'], $films);
+        break;
     case 'films' && ctype_digit($uriarray[3]):
             require_once 'modeles/pdo.php';
             require_once 'modeles/detail_movie.php';

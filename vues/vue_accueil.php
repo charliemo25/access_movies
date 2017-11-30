@@ -11,20 +11,17 @@
 <body>
 
     <section class="container">
-
-
         <div class="row">
                 <div class="carousel">
+                   <h3 class="text-center">Derniers Ajouts: </h3>
                     <?php
                     
                     foreach($last_films as $films){
-                        echo '<a class="carousel-item" href="http://localhost/access_movies/films/'.$films['id'].'"><img src="http://localhost/access_movies/img/'.$films['id'].'.jpg"></a>';
+                        echo '<a class="z-depth-3 carousel-item" href="http://localhost/access_movies/films/'.$films['id'].'"><img src="http://localhost/access_movies/img/'.$films['id'].'.jpg"></a>';
                     }
                     
                     ?>
                 </div>
-            <div class="col l4"></div>
-            <div class="col l4"></div>
         </div>
     </section>
 

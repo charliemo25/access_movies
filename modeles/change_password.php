@@ -9,7 +9,7 @@ if(empty($_REQUEST['mdp_ancien']) && empty($_REQUEST['mdp']) && empty($_REQUEST[
     $erreur = "";
     $envoi = true;
     
-    $mdp_ancien = $_REQUEST['mdp_ancien'];
+    $mdp_ancien = hash('sha256', $_REQUEST['mdp_ancien']);
     $mdp = $_REQUEST['mdp'];
     $mdp2 = $_REQUEST['mdp2'];
     
@@ -48,7 +48,6 @@ if(empty($_REQUEST['mdp_ancien']) && empty($_REQUEST['mdp']) && empty($_REQUEST[
     }
     
     if($envoi){
-        $mdp_ancien = hash('sha256', $mdp_ancien);
         
         $mdp = hash('sha256', $mdp);
         

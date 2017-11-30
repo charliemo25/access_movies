@@ -2,7 +2,7 @@
     
     require_once('vues/vue_haut.php');
 echo '<div class="row">
-        <div class="col s4 offset-s4">';
+        <div class="col s4 offset-s4 center">';
 echo '<ul class="pagination">';
     for($i=1; $i<=$pagination[1]; $i++){
         
@@ -20,11 +20,18 @@ echo '</ul> </div> </div> <div class="row">';
         echo '<div style="margin-bottom: 30px;" class="col m4"> 
         <div class="card"> 
         <div class="card-image">';
-            
-
-                echo '<img src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
-                <span style="text-shadow: 1px 1px 1px black;" class="card-title">'.$film['titre'].'</span>
+     
+        if(!file_exists("http://localhost/access_movies/img/".$film['id'].".jpg")){
+                
+              echo '<img class="miniature" src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
+                <span style="text-shadow: 1px 1px 1px black;" class="card-title titre z-depth-3">'.$film['titre'].'</span>
                 </div>';
+        } else{
+            echo '<img class="miniature" src="http://localhost/access_movies/img/void.jpg" alt="Miniature">
+                <span style="text-shadow: 1px 1px 1px black;" class="card-title titre z-depth-3">'.$film['titre'].'</span>
+                </div>';
+        }
+
                 
         echo '<form method="POST" action="http://localhost/access_movies/films/'.$film['id'].'">
         <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
@@ -34,7 +41,7 @@ echo '</ul> </div> </div> <div class="row">';
              </div>';
              }
         echo '<div class="row">
-        <div class="col s4 offset-s4">
+        <div class="col s4 offset-s4 center">
         <ul class="pagination">';
     for($i=1; $i<=$pagination[1]; $i++){
         
