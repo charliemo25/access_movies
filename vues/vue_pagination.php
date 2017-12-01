@@ -21,13 +21,12 @@ echo '</ul> </div> </div> <div class="row">';
         <div class="card"> 
         <div class="card-image">';
      
-        if(!file_exists("http://localhost/access_movies/img/".$film['id'].".jpg")){
-                
-              echo '<img class="miniature" src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
+        if(intval($film['id']) > 39){
+            echo '<img class="miniature" src="http://localhost/access_movies/img/void.jpg" alt="Miniature">
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title titre z-depth-3">'.$film['titre'].'</span>
                 </div>';
         } else{
-            echo '<img class="miniature" src="http://localhost/access_movies/img/void.jpg" alt="Miniature">
+            echo '<img class="miniature" src="http://localhost/access_movies/img/'.$film['id'].'.jpg" alt="Miniature">
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title titre z-depth-3">'.$film['titre'].'</span>
                 </div>';
         }
