@@ -20,7 +20,6 @@ $(document).ready(function () {
             ];
 
     $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
         selectYears: 100, // Creates a dropdown of 15 years to control year,
         today: 'Today',
         clear: 'Clear',
@@ -76,5 +75,14 @@ $(document).ready(function () {
         
         console.log(tab);
     });
-
+    $('.profile').pushpin({
+      top: 150,
+      bottom: 1000,
+      offset: 0
+    });
+    $('.profile').click(function(){
+            $('.profile').classList.removeClass('pulse'); 
+    });
+$('.slider').slider();
+Materialize.fadeInImage('.card');
 });

@@ -13,7 +13,7 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
     $nom = $_REQUEST['nom'];
     $prenom = $_REQUEST['prenom'];
     $pseudo = $_REQUEST['pseudo'];
-    $mdp = hash('sha256', $_REQUEST['mdp']);
+    $mdp = $_REQUEST['mdp']; 
     
     switch($nom){
         case '':
@@ -61,11 +61,12 @@ if(empty($_REQUEST['nom']) && empty($_REQUEST['prenom']) && empty($_REQUEST['pse
     
     if($envoi){
         
+        $mdps = hash('sha256', $_REQUEST['mdp']);
         $req = $pdo->prepare("insert into utilisateurs(nom, prenom, pseudo, mdp) values(:nom, :prenom, :pseudo, :mdp)");
         $req->bindParam(':nom', $_REQUEST['nom']);
         $req->bindParam(':prenom', $_REQUEST['prenom']);
         $req->bindParam(':pseudo', $_REQUEST['pseudo']);
-        $req->bindParam(':mdp', $mdp);
+        $req->bindParam(':mdp', $mdps);
         $req->execute();
     }
     

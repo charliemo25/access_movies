@@ -91,14 +91,12 @@ switch($uriarray[2]){
         break;
     case 'connect':
         require_once 'modeles/pdo.php';
-        require_once 'modeles/get_user.php';
-        $users = get_user($pdo);
         require_once 'vues/vue_connexion.php';
         break;
     case 'connexion':
         require_once 'modeles/pdo.php';
-        require_once 'modeles/get_user.php';
-        $users = get_user($pdo);
+        require_once 'modeles/get_user_infos.php';
+        $users = get_user_infos($pdo);
         require_once 'modeles/connect_user.php';
         $_SESSION['result'] = connect_user($_SESSION['pseudo'], $_SESSION['password'], $users);
         header("Refresh:0; url=http://localhost/access_movies/accueil/1");

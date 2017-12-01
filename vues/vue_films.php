@@ -7,7 +7,7 @@
         
         echo "<h2>".$f['titre']."</h2>";
         
-        echo '<img src="http://localhost/access_movies/img/'.$f['id'].'.jpg" alt="Miniature de '.$f['titre'].'"><br>';
+        echo '<img class="img-small" src="http://localhost/access_movies/img/'.$f['id'].'.jpg" alt="Miniature de '.$f['titre'].'"><br>';
         
         echo "<b>Genre:</b> ";
         foreach($genres as $g){

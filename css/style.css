@@ -1,13 +1,9 @@
-@keyframes slides {
-  0% { left: 0%; }
-  20% { left: 0%; }
-  25% { left: -100%; }
-  45% { left: -100%; }
-  50% { left: -200%; }
-  70% { left: -200%; }
-  75% { left: -300%; }
-  95% { left: -300%; }
-  100% { left: -400%; }
+@font-face {
+  font-family: 'Barlow';
+  src: url('http://localhost/access_movies/fonts/Barlow/Barlow-Regular.ttf');
+}
+html {
+  font-family: 'Barlow', sans-serif;
 }
 header {
     background-color: #43A047;
@@ -19,36 +15,37 @@ header h1{
 .text-center {
     text-align: center;
 }
-#fond {
-    width: 80%;
-    max-width: 1000px;
-    overflow: hidden; 
-}
-#fond figure {
-  position: relative; 
-  width: 500%;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-  text-align: left;
-  animation: 30s slides infinite;
-}
-#fond figure img {
-    width: 20%; 
-    height: auto; 
-    float: left;
-}
 .titre {
     top: 360px;
     text-align: center;
-    padding-top: 0px !important;
+    margin-top: 0px !important;
     color: white !important;
     width: 300px;
     font-size: 22px !important;
     height: 60px;
     background: rgba(51,105,30,0.6);
 }
+.title_ac {
+    font-size: 45px !important;
+}
 .navigation {
     padding-left: 10px;
     padding-right: 10px;
+}
+.img-small{
+    width: 225px;
+    height: 300px;
+}
+.profile {
+    padding-top: 20px;
+}
+.first {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+.nav-wrapper {
+    z-index: 9999;
+}
+.view-more{
+    background-color: rgba(197,202,233,0.7);
 }

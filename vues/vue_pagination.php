@@ -33,7 +33,7 @@ echo '</ul> </div> </div> <div class="row">';
 
                 
         echo '<form method="POST" action="http://localhost/access_movies/films/'.$film['id'].'">
-        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light green material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
+        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
         </form></span>';
         
             echo '</div>
