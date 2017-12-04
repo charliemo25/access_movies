@@ -1,4 +1,5 @@
     <?php require_once ('vues/vue_haut.php'); ?>
+      <h2>Ajouter un film : </h2>
        <div class="row">
         <form class="col s12" method="POST">
             <div class="row">

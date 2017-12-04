@@ -1,6 +1,7 @@
 <?php
     
     require_once('vues/vue_haut.php');
+$_SESSION['pseudo'] = "";
 echo '<div class="row">
         <div class="col s4 offset-s4 center">';
 echo '<ul class="pagination">';
@@ -30,12 +31,21 @@ echo '</ul> </div> </div> <div class="row">';
                 <span style="text-shadow: 1px 1px 1px black;" class="card-title titre z-depth-3">'.$film['titre'].'</span>
                 </div>';
         }
-
-                
-        echo '<form method="POST" action="http://localhost/access_movies/films/'.$film['id'].'">
-        <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
-        </form></span>';
-        
+             if($_SESSION['pseudo'] == "admin"){
+                 echo ' <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a href="http://localhost/access_movies/delete/'.$film['id'].'" class="btn-floating red"><i class="material-icons">delete</i></a></li>
+      <li><a href="http://localhost/access_movies/edit/'.$film['id'].'" class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+    </ul>
+  </div></span>';
+             } else {
+                 echo '<form method="POST" action="http://localhost/access_movies/films/'.$film['id'].'">
+            <button class="view-more btn-floating btn-large halfway-fab waves-effect waves-light material-icons" name="detail" value="'.$film['titre'].'" type="submit">remove_red_eye</button>
+            </form></span>';
+             }
             echo '</div>
              </div>';
              }

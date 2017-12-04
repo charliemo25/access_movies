@@ -8,9 +8,27 @@ html {
 header {
     background-color: #43A047;
 }
+h2 {
+    margin: 0;
+}
+.tagline {
+    margin-top: 250px;
+}
+.fixed-action-btn {
+  float: right;
+  position: relative;
+  left: -20px;
+  bottom: 30px;
+}
+.shadow {
+    text-shadow: 1px 1px black;
+}
 header h1{
     margin: 0;
     color: white;
+}
+.ajout {
+    margin-top: 600px;
 }
 .text-center {
     text-align: center;

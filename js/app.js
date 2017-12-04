@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    Materialize.fadeInImage('.card');
       $('.carousel').carousel();
         
     var tab = [];
@@ -84,5 +85,4 @@ $(document).ready(function () {
             $('.profile').classList.removeClass('pulse'); 
     });
 $('.slider').slider();
-Materialize.fadeInImage('.card');
 });
