@@ -1,7 +1,6 @@
 <?php
     
     require_once('vues/vue_haut.php');
-$_SESSION['pseudo'] = "";
 echo '<div class="row">
         <div class="col s4 offset-s4 center">';
 echo '<ul class="pagination">';
@@ -37,8 +36,9 @@ echo '</ul> </div> </div> <div class="row">';
       <i class="large material-icons">menu</i>
     </a>
     <ul>
-      <li><a href="http://localhost/access_movies/delete/'.$film['id'].'" class="btn-floating red"><i class="material-icons">delete</i></a></li>
-      <li><a href="http://localhost/access_movies/edit/'.$film['id'].'" class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+      <li><a href="http://localhost/access_movies/delete/'.$film['id'].'" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></li>
+      <li><a href="http://localhost/access_movies/edit/'.$film['id'].'" class="btn-floating waves-effect waves-light yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+      <li><a href="http://localhost/access_movies/films/'.$film['id'].'" class="btn-floating waves-effect waves-light" value="'.$film['titre'].'"><i class="material-icons">remove_red_eye</i></a></li>
     </ul>
   </div></span>';
              } else {

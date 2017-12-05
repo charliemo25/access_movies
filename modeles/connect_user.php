@@ -1,4 +1,4 @@
-<?php 
+<?php
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['password'] = $_POST['password'];
 
